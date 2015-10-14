@@ -20,6 +20,10 @@ by default the videos are downloaded in videos/
 
 ## Windows
 
+!!!!!! unzip in C:\ for example !!!!!! !!!!! no spaces and no special characters in the path !!!!!!!!!!
+
+
+
 first you can delete hotstarlivestreamer.sh and starsportslivesreamer.sh it's for linux users
 
 Dependencies for windows XP (Microsoft Visual C++ 2008 Redistributable Package)
