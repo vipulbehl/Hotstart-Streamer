@@ -60,7 +60,7 @@ if ($last==$testl){
 		
 		$filename = preg_replace('/[^A-Za-z0-9_\. -]/', '', $filename);
 
-		$json="http://getcdn.hotstar.com/AVS/besc?action=GetCDN&asJson=Y&channel=IOS&id=$argv[2]&type=VOD";
+		$json="http://getcdn.hotstar.com/AVS/besc?action=GetCDN&asJson=Y&channel=TABLET&id=$argv[2]&type=VOD";
 
 		$test=file_get_contents($json, false, $context);
 
@@ -71,12 +71,14 @@ if ($last==$testl){
 		$testhttps=strpos($hls, 'https');
 
 		if($testhttps){  
-			$m3u8=str_replace("https","hlsvariant://https",$hls);
+			$m3u8p=str_replace("https","hlsvariant://https",$hls);
 			} 
 			else{ 
-			$m3u8=str_replace("http","hlsvariant://http",$hls);
+			$m3u8p=str_replace("http","hlsvariant://http",$hls);
 			}
-
+		
+		$m3u8=str_replace("2000,_STAR.","2000,3000,4500,_STAR.",$m3u8p);
+		
 		$badformat = array("4500","3000","2000","1300","800","400","180","106","54","16");
 
 		$googformat = array("1080p", "900p","720p","404p","360p","234p","","","","");
@@ -118,7 +120,7 @@ else{
 
 	$title="http://account.hotstar.com/AVS/besc?action=GetAggregatedContentDetails&channel=PCTV&contentId=$pid";
 
-	$json="http://getcdn.hotstar.com/AVS/besc?action=GetCDN&asJson=Y&channel=IOS&id=$pid&type=VOD";
+	$json="http://getcdn.hotstar.com/AVS/besc?action=GetCDN&asJson=Y&channel=TABLET&id=$pid&type=VOD";
                                  
 	$options  = array('http' => array('user_agent' => 'custom user agent string'));
 
@@ -153,12 +155,14 @@ else{
 	$testhttps=strpos($hls, 'https');
 
 	if($testhttps){  
-		$m3u8=str_replace("https","hlsvariant://https",$hls);
+		$m3u8p=str_replace("https","hlsvariant://https",$hls);
 		} 
 		else{ 
-		$m3u8=str_replace("http","hlsvariant://http",$hls);
+		$m3u8p=str_replace("http","hlsvariant://http",$hls);
 		}
-
+	
+	$m3u8=str_replace("2000,_STAR.","2000,3000,4500,_STAR.",$m3u8p);
+	
 	$badformat = array("4500","3000","2000","1300","800","400","180","106","54","16");
 
 	$googformat = array("1080p", "900p","720p","404p","360p","234p","","","","");
