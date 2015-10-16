@@ -114,9 +114,10 @@ else{
 
 	$folder = ""; 
 
-	$argv[1] = substr($argv[1], 0, strrpos($argv[1], "-")); $argv[1] = substr($argv[1], strrpos($argv[1], "-"), 20);
-
-	$pid=str_replace("-","",$argv[1]);
+	if(preg_match_all("/\-([0-9]+)\-/", $argv[1], $matches))
+	{
+		$pid = $matches[1][count($matches[1])-1];
+	} 
 
 	$title="http://account.hotstar.com/AVS/besc?action=GetAggregatedContentDetails&channel=PCTV&contentId=$pid";
 
