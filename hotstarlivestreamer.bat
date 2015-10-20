@@ -12,7 +12,8 @@ call "%~dp0\tools\php5.4\php.exe" hotstarlivestreamer.php "%%link%%" "%%id%%" "%
 GOTO end1
 :nocollection
 call set /p quality=write quality (example write 720p):
-call "%~dp0\tools\php5.4\php.exe" hotstarlivestreamer.php "%%link%%" "%%quality%%" "%%folder%%" "%%livestreamer%%"
+call set /p choice=play or download? (write p or d):
+call "%~dp0\tools\php5.4\php.exe" hotstarlivestreamer.php "%%link%%" "%%quality%%" "%%folder%%" "%%livestreamer%%" "%%choice%%"
 :end1
 pause
 :end
