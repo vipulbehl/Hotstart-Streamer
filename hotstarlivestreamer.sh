@@ -15,6 +15,7 @@ php hotstarlivestreamer.php "$link" "$id" "$quality" "$folder" "$livestreamer"
 else
 echo "write quality (example write 720p)"
 read quality
-php hotstarlivestreamer.php "$link" "$quality" "$folder" "$livestreamer"
+echo "play or download? (write p or d)"
+read choice
+php hotstarlivestreamer.php "$link" "$quality" "$folder" "$livestreamer" "$choice"
 fi
-
