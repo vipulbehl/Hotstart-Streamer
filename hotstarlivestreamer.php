@@ -175,22 +175,26 @@ else{
 
 	$bitrate=str_replace(","," ",$bitrate);
 
-
+	
 	if(isset($argv[2])){
-		}
-		else{ echo "Available streams: $bitrate\n";
-		}
-
-
-	if(isset($argv[2])){
-
+		if(isset($argv[2]) AND ($argv[5]=='d')){
+	
 
 		echo "Starting livestreamer...\n\n";
 		echo shell_exec("$argv[4]livestreamer  \"$m3u8\" \"$argv[2]\" -o \"$argv[3]$filename.ts\" &");
 		echo "Done.\n";
 		}
 		else{ 
+		echo "Starting livestreamer...\n\n";
+		echo shell_exec("$argv[4]livestreamer  \"$m3u8\" \"$argv[2]\"  &");
+		echo "Done.\n";
 		}
+		}
+		else{ echo "Available streams: $bitrate\n";
+		}
+
+	
+	
 }
 
 ?>
