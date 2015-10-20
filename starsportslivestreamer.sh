@@ -6,4 +6,6 @@ livestreamer=""
 php starsportslivestreamer.php "$link" "$livestreamer"
 echo "write quality (example write 720p)"
 read quality
-php starsportslivestreamer.php "$link" "$quality" "$folder" "$livestreamer"
+echo "play or download? (write p or d)"
+read choice
+php starsportslivestreamer.php "$link" "$quality" "$folder" "$livestreamer" "$choice"
