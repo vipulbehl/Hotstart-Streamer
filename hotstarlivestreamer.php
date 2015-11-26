@@ -114,11 +114,12 @@ else{
 
 	$folder = ""; 
 
-	if(preg_match_all("/\-([0-9]+)\-/", $argv[1], $matches))
-	{
-		$pid = $matches[1][count($matches[1])-1];
-	} 
+	$ppid= strrpos($argv[1], '/');
 
+	$id = substr($argv[1], $ppid);
+
+	$pid=str_replace("/","",$id);
+	
 	$title="http://account.hotstar.com/AVS/besc?action=GetAggregatedContentDetails&channel=PCTV&contentId=$pid";
 
 	$json="http://getcdn.hotstar.com/AVS/besc?action=GetCDN&asJson=Y&channel=TABLET&id=$pid&type=VOD";
@@ -157,12 +158,22 @@ else{
 
 	if($testhttps){  
 		$m3u8p=str_replace("https","hlsvariant://https",$hls);
+		
 		} 
 		else{ 
 		$m3u8p=str_replace("http","hlsvariant://http",$hls);
 		}
-	
-	$m3u8=str_replace("2000,_STAR.","2000,3000,4500,_STAR.",$m3u8p);
+	$testhttps2=strpos($m3u8p, 'https');
+	if($testhttps2){  
+		$m3u8=str_replace("2000,_STAR.","2000,3000,4500,_STAR.",$m3u8p);
+		
+		} 
+		else{ 
+		$m3u8=str_replace("2000,_STAR.","2000,_STAR.",$m3u8p);
+		}
+
+
+
 	
 	$badformat = array("4500","3000","2000","1300","800","400","180","106","54","16");
 
