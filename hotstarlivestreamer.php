@@ -119,6 +119,7 @@ else{
 	$id = substr($argv[1], $ppid);
 
 	$pid=str_replace("/","",$id);
+	$pid = substr($pid, -10);
 	
 	$title="http://account.hotstar.com/AVS/besc?action=GetAggregatedContentDetails&channel=PCTV&contentId=$pid";
 
